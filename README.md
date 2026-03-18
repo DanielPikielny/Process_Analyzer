@@ -1,30 +1,55 @@
 # AI Process Analyzer
 
-This project is a Streamlit-based web application designed to analyze business workflow descriptions. It uses Large Language Models to identify sequential process steps, pinpoint inefficiencies, and suggest automation opportunities and relevant software tools.
+A Python-based analysis pipeline that transforms unstructured business workflow descriptions into structured insights. This tool identifies sequential steps, detects inefficiencies, suggests automation opportunities, recommends specific software tools, and provides rough cost estimates.
+ Features
 
-Features
+    Structured Analysis Pipeline: Uses a multi-step LLM chain to ensure high-quality, specialized analysis for each phase of the process.
 
-    Workflow Extraction: Converts unstructured text descriptions into clear, sequential process steps.
+    Automatic Visualization: Generates a workflow diagram using Graphviz to map out the current process steps.
 
-    Visual Mapping: Automatically generates a flowchart diagram of the described workflow using Graphviz.
+    Confidence Scoring: Every insight includes a confidence score (0.0–1.0), giving users transparency into the AI's certainty.
 
-    Inefficiency Identification: Highlights manual bottlenecks and risks within the current process.
+    Modern Web UI: Built with Streamlit for an interactive, easy-to-use experience.
 
-    Automation Recommendations: Provides concrete actions to improve efficiency through automation.
+    Pydantic Validation: All data is strictly validated against a schema to ensure consistent output quality.
 
-    Tool Suggestions: Recommends specific platforms or APIs to implement the suggested improvements.
+ Architecture
 
-Technical Architecture
+The project is divided into specialized modules:
 
-    app.py: The frontend interface built with Streamlit, handling user input and displaying the structured analysis.
+    app.py: The Streamlit frontend and UI logic.
 
-    analyzer.py: The core logic that interfaces with the OpenAI API to process text using the gpt-4o-mini model.
+    analyzer.py: The core engine that manages LLM calls and the analysis sequence.
 
-    diagram.py: A utility script that uses the Graphviz library to programmatically create workflow nodes and edges.
+    schema.py: Pydantic models defining the data structure for every step of the pipeline.
 
-    schema.py: Ensures data integrity by validating that the model output contains all required JSON fields.
+    diagram.py: Logic for generating visual process maps.
 
-    process_prompt.txt: A system prompt template that enforces a strict JSON output format for consistent parsing.
+ Prerequisites
+
+    Python 3.9+
+
+    An OpenAI API Key
+
+    Graphviz installed on your system (required for the diagramming feature)
+
+Data Schema
+
+    The analyzer provides structured data in the following categories:
+    
+    | Component | Description |
+    
+    | :--- | :--- |
+    
+    | Process Steps | Sequential actions making up the workflow. |
+    
+    | Inefficiencies | High/Medium/Low impact bottlenecks and manual risks. |
+    
+    | Automations | Concrete opportunities for technical optimization. |
+    
+    | Suggested Tools | Specific software platforms (e.g., Zapier, HubSpot). |
+    
+    | Cost Estimates | Implementation effort or subscription pricing. |
 
 Directory Structure:
     Ensure the prompt template is located in a prompts/ directory relative to the execution folder:
