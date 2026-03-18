@@ -29,8 +29,13 @@ Technical Architecture
 Directory Structure:
     Ensure the prompt template is located in a prompts/ directory relative to the execution folder:
     ├── app.py
+    
     ├── analyzer.py
+    
     ├── diagram.py
+    
     ├── schema.py
+    
     └── prompts/
+    
         └── process_prompt.txt
